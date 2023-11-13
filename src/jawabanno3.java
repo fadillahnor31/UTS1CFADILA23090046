@@ -1,12 +1,47 @@
 public class jawabanno3 {
 
-    private String fadlh;
-    public jawabanno3(){
-        // misalnya saya bikin coding buat jawaban spt ini
-        // km tinggal ke menu GIT
+    private String fadillah;
+    public jawabanno3() {
     }
-}// km liat itu ada yang warna ijo ya, berati ada file baru yang belum
-// ada di github km, jadi kalo mau upload
-// ke github harus commit dulu
-// abis itu tekan commit and push
-// kalo muncul warning pilih commit and push anyway
+}
+public class ValidasiPlatNomor {
+    public static void main(String[] args) {
+
+        System.out.print("Masukkan plat nomor (5 digit): ");
+        String platNomor = null;
+
+        String statusValiditas = cekValiditasPlat(platNomor);
+        System.out.println("Status validitas plat nomor: " + statusValiditas);
+    }
+
+    static String cekValiditasPlat(String platNomor) {
+        // Memeriksa panjang plat nomor
+        if (platNomor.length() != 5) {
+            return "Invalid";
+        }
+
+        // Memeriksa setiap digit plat nomor
+        for (int i = 0; i < platNomor.length(); i++) {
+            char digit = platNomor.charAt(i);
+
+            // Memeriksa apakah digit adalah angka
+            if (!Character.isDigit(digit)) {
+                return "Invalid";
+            }
+
+            // Memeriksa apakah digit adalah genap atau ganjil
+            int nilaiDigit = Character.getNumericValue(digit);
+            if (nilaiDigit % 2 != 0) {
+                return "Invalid";
+            }
+        }
+
+        // Jika semua kondisi terpenuhi, plat nomor dianggap valid
+        return "Valid";
+    }
+}
+
+
+
+
+
